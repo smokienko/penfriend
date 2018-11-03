@@ -32,11 +32,7 @@ public class DefaultPostService extends IntentService {
             Object penFriend = findPenFriend(intent);
             Method method = findMethod(penFriend.getClass(), intent);
             method.invoke(penFriend, BundleBuilder.getMethodArgs(intent));
-        } catch (IllegalArgumentException e) {
-            Log.d(TAG, "invokeMethodFromIntent: " + e);
-        } catch (IllegalAccessException e) {
-            Log.d(TAG, "invokeMethodFromIntent: " + e);
-        } catch (InvocationTargetException e) {
+        } catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
             Log.d(TAG, "invokeMethodFromIntent: " + e);
         }
     }
@@ -62,15 +58,8 @@ public class DefaultPostService extends IntentService {
         try {
             Class penFriendType = Class.forName(address);
             return penFriendType.getConstructor().newInstance();
-        } catch (ClassNotFoundException e) {
-            Log.e(TAG, "createPenFriend: " + e);
-        } catch (NoSuchMethodException e) {
-            Log.e(TAG, "createPenFriend: " + e);
-        } catch (IllegalAccessException e) {
-            Log.e(TAG, "createPenFriend: " + e);
-        } catch (InstantiationException e) {
-            Log.e(TAG, "createPenFriend: " + e);
-        } catch (InvocationTargetException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException
+                | InstantiationException | InvocationTargetException e) {
             Log.e(TAG, "createPenFriend: " + e);
         }
         throw new IllegalArgumentException("No PenFriend found on this address " + address);

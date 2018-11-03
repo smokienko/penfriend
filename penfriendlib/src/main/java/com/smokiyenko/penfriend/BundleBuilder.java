@@ -13,11 +13,11 @@ public class BundleBuilder {
 
     private static HashMap<Class<?>, Bundler> BUNDLERS = new HashMap<>();
 
-    public static final String METHOD_NAME = "MethodName";
-    public static final String METHOD_PARAMETERS = "MethodParameters";
-    public static final String INTERFACE_NAME = "InterfaceName";
-    public static final String ADDRESS = "address";
-    public static final String PROXY = "Proxy";
+    private static final String METHOD_NAME = "MethodName";
+    private static final String METHOD_PARAMETERS = "MethodParameters";
+    private static final String INTERFACE_NAME = "InterfaceName";
+    private static final String ADDRESS = "address";
+    private static final String PROXY = "Proxy";
 
     static {
         BUNDLERS.put(Boolean.class, new Bundler.BooleanBundler());
