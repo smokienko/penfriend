@@ -41,7 +41,7 @@ public class DynamicServiceProcessor extends AbstractProcessor {
 
     private ClassName contextClass =  ClassName.get("android.content", "Context");
     private ClassName intentClass =  ClassName.get("android.content", "Intent");
-    private ClassName bundler = ClassName.get("com.smokiyenko.android.dynamicservice.bundlers","BundleBuilder");
+    private ClassName bundler = ClassName.get("com.smokiyenko.penfriend","BundleBuilder");
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
